@@ -1,0 +1,95 @@
+Metadata-Version: 1.0
+Name: sc.base.memberdataexport
+Version: 0.5
+Summary: Export Plone member data as CSV file
+Home-page: http://www.simplesconsultoria.com.br/
+Author: Simples Consultoria
+Author-email: products@simplesconsultoria.com.br
+License: GPL
+Description: ========================
+        sc.base.memberdataexport
+        ========================
+        
+        Overview
+        --------
+        
+        A very common request of customers is to give them a listing of registered users
+        in theirs portals and sites. Althought, as PlonePAS allows us to deploy different
+        user and properties sources, even the most simple case -- Plone factory settings
+        -- is not covered when we need to export user data.
+        
+        This package aims to solve, at least, the simple use cases, allowing portal managers
+        to export member data (except password) on a CSV format.
+        
+        Installation
+        ------------
+        
+        To use this package, on a buildout based installation:
+        
+        1. Unpack sc.base.memberdataexport package to src/ folder of your buildout
+        
+        2. Edit your buildout.cfg and add the following information::
+        
+        [buildout]
+        ...
+        eggs =
+        sc.base.memberdataexport
+        
+        [instance]
+        zcml =
+        ...
+        sc.base.memberdataexport
+        
+        The last line tells buildout to generate a zcml snippet that tells
+        Zope to configure sc.base.memberdataexport.
+        
+        If another package depends on the sc.base.memberdataexport egg or
+        includes its zcml directly you do not need to specify anything in the
+        buildout configuration: buildout will detect this automatically.
+        
+        After updating the configuration you need to run the ''bin/buildout'',
+        which will take care of updating your system.
+        
+        Go to the 'Site Setup' page in the Plone interface and click on the
+        'Add/Remove Products' link.
+        
+        Choose the product (check its checkbox) and click the 'Install' button.
+        
+        Uninstall -- This can be done from the same management screen, but only
+        if you installed it from the quick installer.
+        
+        Note: You may have to empty your browser cache to see the effects of the
+        product installation.
+        
+        Tested with
+        -----------
+        - Plone >= 3.1.x (http://plone.org/products/plone)
+        
+        Credits
+        -------
+        
+        * Erico Andrei (erico at simplesconsultoria dot com dot br) - Coding
+        
+        * Simples Consultoria (products at simplesconsultoria dot com dot br) -
+        Packaging
+        
+        
+        Changelog
+        =========
+        
+        0.5 (2009-03-29)
+        ----------------
+        
+        * Uses a control panel to configure the most common settings
+        [erico_andrei]
+        
+        * Tested only with Plone factory settings (ZODB user source)
+        [erico_andrei]
+        
+        * Initial release
+        [erico_andrei]
+Keywords: plone users csv export simples_consultoria
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

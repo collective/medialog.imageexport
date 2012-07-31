@@ -1,0 +1,14 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+           i18n_domain="medialog.imageexport">
+
+       <!-- Export / Import-->
+       <browser:page
+           name="image-export"
+           for="Products.ATContentTypes.interface.IATFolder"
+           class=".imageexport.Exporter"
+           permission="cmf.ManagePortal"
+       />
+
+</configure>

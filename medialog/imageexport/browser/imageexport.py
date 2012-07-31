@@ -4,25 +4,27 @@
 import os
 import tempfile
 import zipfile
-import types
+#import types
 
-from zope import interface
-from zope import component
-from Products.CMFPlone import utils
-from Products.Five import BrowserView
-from zope.interface import implements
-from Acquisition import aq_inner
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from tempfile import TemporaryFile
+#from zope import interface
+#from zope import component
+#from Products.CMFPlone import utils
+#from zope.interface import implements
+#from Acquisition import aq_inner
+#from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 #from Products.CMFPlone.utils import getToolByName
+from Products.Five import BrowserView
+from tempfile import TemporaryFile
+
 
 class Exporter(BrowserView):
     
     def __init__(self, context, request):
-        pass
+        super(Exporter, self).__init__(context, request)
+
     
-    def __call__(self, request):
-        '''Returns the file (with the preview images)
+    def __call__(self,REQUEST):
+        '''Returns the file (with the preview images
         '''
         imagesize = self.request.get('imagesize', 'preview')  #Using preview if nothing is specified
         
@@ -32,14 +34,14 @@ class Exporter(BrowserView):
         ZIP = zipfile.ZipFile(zip_filename, 'w')
 
         for obj in self.context.getFolderContents():
+            #format = obj.format
             obj = obj.getObject()
 
             if obj.portal_type == 'Image':
                 # export only preview scale
                 #unfortunately, I dont know the format. format = obj.format
-                format = '.jpg'
                 img = obj.Schema().getField('image').getScale(obj,scale=imagesize)
-                ZIP.writestr('images/' + obj.getId() + format, str(img.data))
+                ZIP.writestr(self.context.getId() + '/' + obj.getId(), str(img.data))
         
         ZIP.close()
         data = file(zip_filename).read()

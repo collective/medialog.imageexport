@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: medialog.imageexport
-Version: 0.1.1
+Version: 0.2
 Summary: Export Plone images pil scale imagescale
 Home-page: http://www.medialog.no
 Author: Espen Moe-Nilssen
@@ -17,13 +17,22 @@ Description: Introduction
         http://mysite/myfolder/image-export?imagesize=mini
         
         http://mysite/myfolder/image-export?imagesize=thumb
+        
+        
         Changelog
         =========
+        
+        
+        0.2 (2012-12-05)
+        ----------------
+            
+        * downloaded images now gets the right suffix.
+        
         
         0.1 (2011-05-12)
         ----------------
             
-            * first version
+        * first version
 Keywords: plone images preview export
 Platform: UNKNOWN
 Classifier: Framework :: Plone

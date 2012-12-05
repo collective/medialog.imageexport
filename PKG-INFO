@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: medialog.imageexport
-Version: 0.1
+Version: 0.1.1
 Summary: Export Plone images pil scale imagescale
 Home-page: http://www.medialog.no
 Author: Espen Moe-Nilssen
